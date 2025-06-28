@@ -1,4 +1,3 @@
-<!-- Save this as index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,6 @@
   <title>Lavanya J C - Cloud Resume</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Root & Theme Colors */
     :root {
       --bg-light: #f7f9fc;
       --bg-dark: #1c1c1e;
@@ -17,24 +15,20 @@
       --card-bg-light: #fff;
       --card-bg-dark: #2b2b2b;
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
-
     body.light-mode {
       background-color: var(--bg-light);
       color: var(--text-light);
     }
-
     body.dark-mode {
       background-color: var(--bg-dark);
       color: var(--text-dark);
     }
-
     .container {
       max-width: 1100px;
       margin: auto;
@@ -44,18 +38,15 @@
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
       transition: background 0.3s;
     }
-
     body.dark-mode .container {
       background-color: var(--card-bg-dark);
     }
-
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 30px;
     }
-
     .toggle-theme {
       cursor: pointer;
       font-size: 1rem;
@@ -65,7 +56,6 @@
       border: none;
       border-radius: 8px;
     }
-
     nav {
       position: sticky;
       top: 0;
@@ -74,38 +64,31 @@
       text-align: center;
       z-index: 999;
     }
-
     body.dark-mode nav {
       background-color: var(--card-bg-dark);
     }
-
     nav a {
       margin: 0 12px;
       text-decoration: none;
       color: var(--accent);
       font-weight: bold;
     }
-
     h1, h2 {
       color: inherit;
     }
-
     h2 {
       margin-top: 30px;
       font-size: 1.6em;
       border-bottom: 2px solid #ddd;
       padding-bottom: 5px;
     }
-
     body.dark-mode h2 {
       border-bottom-color: #444;
     }
-
     .contact a {
       color: var(--accent);
       margin-right: 15px;
     }
-
     .card {
       background: var(--card-bg-light);
       padding: 20px;
@@ -115,15 +98,12 @@
       transition: transform 0.2s, background 0.3s, opacity 1s;
       opacity: 0;
     }
-
     .card.reveal {
       opacity: 1;
     }
-
     body.dark-mode .card {
       background-color: var(--card-bg-dark);
     }
-
     .skill-tag {
       display: inline-block;
       background: var(--accent);
@@ -133,13 +113,11 @@
       margin: 4px 4px 0 0;
       font-size: 0.9em;
     }
-
     .visitor-count {
       margin-top: 30px;
       font-size: 1.2em;
       font-weight: 600;
     }
-
     .back-to-top {
       position: fixed;
       bottom: 20px;
@@ -153,15 +131,12 @@
       display: none;
       z-index: 1000;
     }
-
     .back-to-top.show {
       display: inline-block;
     }
-
     .contact-form {
       margin-top: 40px;
     }
-
     .contact-form input, .contact-form textarea {
       width: 100%;
       padding: 10px;
@@ -169,7 +144,6 @@
       border-radius: 8px;
       border: 1px solid #ccc;
     }
-
     .contact-form button {
       background: var(--accent);
       color: white;
@@ -178,7 +152,6 @@
       border-radius: 6px;
       cursor: pointer;
     }
-
     .pdf-button {
       background: #4CAF50;
       color: white;
@@ -189,7 +162,6 @@
       cursor: pointer;
       font-weight: bold;
     }
-
     @media (max-width: 768px) {
       body {
         padding: 15px;
@@ -226,13 +198,49 @@
     </div>
 
     <h2 id="education">Education</h2>
-    <div class="card reveal">...</div>
+    <div class="card reveal">
+      <strong>B.E. Computer Science</strong><br>
+      Visvesvaraya Technological University, Acharya Institute of Technology, Bengaluru – 2024<br>
+      CGPA: 7.1
+    </div>
+    <div class="card reveal">
+      <strong>Pre-University</strong><br>
+      Vikram Independent PU College, Chintamani – 2020
+    </div>
 
     <h2 id="projects">Projects</h2>
-    <div class="card reveal">...</div>
+    <div class="card reveal">
+      <strong>Feedback Web Application – <a href="https://github.com/Lavanyajc/PROJECT-Feedback-System-Web-App" target="_blank">GitHub</a></strong>
+      <ul>
+        <li>Designed and developed a full-stack feedback system with user authentication and role-based access.</li>
+        <li>Dockerized and deployed on AWS EC2.</li>
+        <li><strong>Tech Stack:</strong> Python, Flask, SQLite, Docker, AWS EC2</li>
+      </ul>
+    </div>
+    <div class="card reveal">
+      <strong>Makerble Assessment Project – <a href="https://github.com/Lavanyajc/makerble-assignment" target="_blank">GitHub</a></strong>
+      <ul>
+        <li>Developed REST API in Go with role-based access and patient management system.</li>
+        <li>Created Postman docs, test cases, and implemented visit logs.</li>
+        <li><strong>Tech Stack:</strong> Golang (Gin), PostgreSQL</li>
+      </ul>
+    </div>
 
     <h2 id="internships">Internships</h2>
-    <div class="card reveal">...</div>
+    <div class="card reveal">
+      <strong>Python Intern – Skill Vertex</strong>
+      <ul>
+        <li>Completed a feedback collection system with Flask and SQLite.</li>
+        <li>Practiced hands-on Python scripting through daily tasks.</li>
+      </ul>
+    </div>
+    <div class="card reveal">
+      <strong>DevOps Engineer Trainee – 2025 (Ongoing)</strong>
+      <ul>
+        <li>Working with AWS services (IAM, S3, EC2, Route 53), setting up cloud infra manually and via Vagrant.</li>
+        <li>Practicing Docker, Infrastructure as Code, and monitoring basics.</li>
+      </ul>
+    </div>
 
     <h2 id="research">Research Publication</h2>
     <div class="card reveal">
@@ -241,15 +249,28 @@
     </div>
 
     <h2 id="skills">Skills</h2>
-    <div class="card reveal">...</div>
+    <div class="card reveal">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Bash</span>
+      <span class="skill-tag">AWS</span>
+      <span class="skill-tag">Docker</span>
+      <span class="skill-tag">GitHub</span>
+      <span class="skill-tag">Vagrant</span>
+      <span class="skill-tag">Git Bash</span>
+      <span class="skill-tag">Linux CLI</span>
+      <span class="skill-tag">AWS CLI</span>
+      <span class="skill-tag">MobaXterm</span>
+      <span class="skill-tag">Ubuntu</span>
+      <span class="skill-tag">CentOS</span>
+      <span class="skill-tag">Windows</span>
+      <span class="skill-tag">Oracle VM</span>
+      <span class="skill-tag">AWS Console</span>
+    </div>
 
-    <!-- ✅ PDF Download Button -->
     <button class="pdf-button" onclick="window.print()">📄 Download Resume (PDF)</button>
 
-    <!-- ✅ Visitor Count -->
     <div class="visitor-count" id="visitorCount">Loading visitor count...</div>
 
-    <!-- ✅ Contact Form -->
     <h2 id="contact">Contact Me</h2>
     <div class="card contact-form reveal">
       <form action="https://formspree.io/f/xldnapan" method="POST">
@@ -264,7 +285,6 @@
   <a href="#" class="back-to-top" id="backToTop">↑</a>
 
   <script>
-    // Theme Toggle
     function toggleTheme() {
       const body = document.body;
       const toggleBtn = document.getElementById('themeToggle');
@@ -273,7 +293,6 @@
       toggleBtn.innerText = body.classList.contains('dark-mode') ? '☀️ Enter Light Mode' : '🌙 Enter Dark Mode';
     }
 
-    // Visitor Counter
     fetch("https://visitor-counter-4.onrender.com/visits")
       .then(response => response.json())
       .then(data => {
@@ -283,7 +302,6 @@
         document.getElementById("visitorCount").innerText = "⚠️ Visitor counter error";
       });
 
-    // Back To Top
     const backToTop = document.getElementById("backToTop");
     window.onscroll = function () {
       if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
@@ -293,7 +311,6 @@
       }
     };
 
-    // Fade In Cards on Scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -307,8 +324,8 @@
     });
   </script>
 
-  <!-- ✅ Google Analytics (replace 'G-XXXXXXX' with your ID) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <!-- ✅ Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TVYV6XDBP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
