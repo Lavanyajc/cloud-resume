@@ -1,0 +1,8 @@
+services:
+  - type: static
+    name: lavanya-resume
+    repo: https://github.com/Lavanyajc/visitor-counter
+    branch: main
+    buildCommand: ""
+    staticPublishPath: .
+    autoDeploy: true
