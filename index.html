@@ -2,116 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lavanya J C - Cloud Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f7f9fc;
-      color: #2c3e50;
-      line-height: 1.6;
+    :root {
+      --bg-light: #f7f9fc;
+      --bg-dark: #1c1c1e;
+      --text-light: #2c3e50;
+      --text-dark: #f1f1f1;
+      --accent: #007acc;
+      --card-bg-light: #fff;
+      --card-bg-dark: #2b2b2b;
+    }
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      line-height: 1.6;
       padding: 30px;
+      transition: background 0.3s, color 0.3s;
     }
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
-      background-color: #fff;
+      background-color: var(--card-bg-light);
       padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.08);
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+      transition: background 0.3s;
     }
-    h1, h2, h3 {
-      margin-bottom: 5px;
-      color: #1a1a1a;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .toggle-theme {
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 6px 12px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
     }
     h1 {
       font-size: 2.5em;
+      margin-bottom: 5px;
     }
     h2 {
       margin-top: 30px;
-      border-bottom: 2px solid #eaeaea;
+      font-size: 1.6em;
+      border-bottom: 2px solid #ddd;
       padding-bottom: 5px;
-      font-size: 1.5em;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    .contact {
-      margin-bottom: 30px;
-      font-size: 1.1em;
     }
     .section {
       margin-top: 20px;
     }
-    a {
-      color: #007acc;
-      text-decoration: none;
+    .contact a {
+      color: var(--accent);
+      margin-right: 15px;
     }
-    a:hover {
-      text-decoration: underline;
-    }
-    .subtitle {
-      color: #444;
-      font-size: 1.2em;
+    .card {
+      background: var(--card-bg-light);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       margin-bottom: 20px;
+      transition: transform 0.2s;
     }
-    .project, .internship {
-      margin-bottom: 15px;
+    .card:hover {
+      transform: scale(1.02);
     }
-    .project-title {
-      font-weight: bold;
+    .skill-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin: 4px 4px 0 0;
+      font-size: 0.9em;
     }
-    @media screen and (max-width: 600px) {
-      body { padding: 15px; }
+    .visitor-count {
+      margin-top: 30px;
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      .container {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Lavanya J C</h1>
-    <p class="subtitle">Backend & DevOps Developer | Bengaluru, India</p>
+    <div class="header">
+      <div>
+        <h1>Lavanya J C</h1>
+        <p>Backend & DevOps Developer | Bengaluru, India</p>
+      </div>
+      <button class="toggle-theme" onclick="toggleTheme()">Toggle Dark Mode</button>
+    </div>
+
     <div class="contact">
-      📧 <a href="mailto:jcla9686@gmail.com">jcla9686@gmail.com</a> |
-      📱 +91-9686080680 |
+      📧 <a href="mailto:jcla9686@gmail.com">jcla9686@gmail.com</a>
+      📱 +91-9686080680
       💻 <a href="https://github.com/Lavanyajc" target="_blank">GitHub</a>
     </div>
 
     <h2>Education</h2>
-    <p><strong>B.E. Computer Science</strong><br>
-    Visvesvaraya Technological University, Acharya Institute of Technology, Bengaluru – 2024<br>
-    CGPA: 7.1</p>
-
-    <p><strong>Pre-University</strong><br>
-    Vikram Independent PU College, Chintamani – 2020</p>
+    <div class="card">
+      <strong>B.E. Computer Science</strong><br>
+      Visvesvaraya Technological University, Acharya Institute of Technology, Bengaluru – 2024<br>
+      CGPA: 7.1
+    </div>
+    <div class="card">
+      <strong>Pre-University</strong><br>
+      Vikram Independent PU College, Chintamani – 2020
+    </div>
 
     <h2>Projects</h2>
-    <div class="project">
-      <p class="project-title">Feedback Web Application – <a href="https://github.com/Lavanyajc/PROJECT-Feedback-System-Web-App" target="_blank">GitHub</a></p>
+    <div class="card">
+      <strong>Feedback Web Application – <a href="https://github.com/Lavanyajc/PROJECT-Feedback-System-Web-App" target="_blank">GitHub</a></strong>
       <ul>
         <li>Designed and developed a full-stack feedback system with user authentication and role-based access.</li>
         <li>Dockerized and deployed on AWS EC2.</li>
         <li><strong>Tech Stack:</strong> Python, Flask, SQLite, Docker, AWS EC2</li>
       </ul>
     </div>
-    <div class="project">
-      <p class="project-title">Makerble Assessment Project – <a href="https://github.com/Lavanyajc/makerble-assignment" target="_blank">GitHub</a></p>
+    <div class="card">
+      <strong>Makerble Assessment Project – <a href="https://github.com/Lavanyajc/makerble-assignment" target="_blank">GitHub</a></strong>
       <ul>
         <li>Developed REST API in Go with role-based access and patient management system.</li>
         <li>Created Postman docs, test cases, and implemented visit logs.</li>
         <li><strong>Tech Stack:</strong> Golang (Gin), PostgreSQL</li>
       </ul>
     </div>
-    <div class="project">
-      <p class="project-title">Dyslexia & Dyscalculia Detection</p>
+    <div class="card">
+      <strong>Dyslexia & Dyscalculia Detection</strong>
       <ul>
         <li>AI-based diagnosis system using ML algorithms like SVM, KNN, Random Forest.</li>
         <li>Integrated with Django UI for real-time predictions.</li>
         <li><strong>Tech Stack:</strong> Python, Django, Scikit-learn, SQLite</li>
       </ul>
     </div>
-    <div class="project">
-      <p class="project-title">Car Rental System</p>
+    <div class="card">
+      <strong>Car Rental System</strong>
       <ul>
         <li>Built a user-friendly online car booking system with backend database integration.</li>
         <li><strong>Tech Stack:</strong> PHP, MySQL</li>
@@ -119,15 +165,15 @@
     </div>
 
     <h2>Internship Experience</h2>
-    <div class="internship">
-      <p><strong>Python Intern – Skill Vertex</strong></p>
+    <div class="card">
+      <strong>Python Intern – Skill Vertex</strong>
       <ul>
         <li>Completed a feedback collection system with Flask and SQLite.</li>
         <li>Practiced hands-on Python scripting through daily tasks.</li>
       </ul>
     </div>
-    <div class="internship">
-      <p><strong>DevOps Engineer Trainee – 2025 (Ongoing)</strong></p>
+    <div class="card">
+      <strong>DevOps Engineer Trainee – 2025 (Ongoing)</strong>
       <ul>
         <li>Working with AWS services (IAM, S3, EC2, Route 53), setting up cloud infra manually and via Vagrant.</li>
         <li>Practicing Docker, Infrastructure as Code, and monitoring basics.</li>
@@ -135,41 +181,56 @@
     </div>
 
     <h2>Research Publication</h2>
-    <p>📝 Detection of Dyslexia and Dyscalculia in Children (ICCP Conference)<br>
-    <a href="https://doi.org/10.5121/cseij.2025.15103" target="_blank">[PDF Link – click here]</a></p>
-
-
+    <div class="card">
+      📝 Detection of Dyslexia and Dyscalculia in Children (ICCP Conference)<br>
+      <a href="https://doi.org/10.5121/cseij.2025.15103" target="_blank">[PDF Link – click here]</a>
+    </div>
 
     <h2>Skills</h2>
-    <ul>
-      <li><strong>Programming:</strong> Python, Bash</li>
-      <li><strong>Cloud:</strong> AWS (IAM, EC2, S3, Route 53, VPC)</li>
-      <li><strong>DevOps Tools:</strong> Docker, GitHub, Vagrant</li>
-      <li><strong>Command Line:</strong> Git Bash, Linux CLI, AWS CLI, MobaXterm</li>
-      <li><strong>OS:</strong> Ubuntu, CentOS, Windows</li>
-      <li><strong>Other:</strong> Oracle VM, AWS Console</li>
-    </ul>
+    <div>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Bash</span>
+      <span class="skill-tag">AWS</span>
+      <span class="skill-tag">Docker</span>
+      <span class="skill-tag">GitHub</span>
+      <span class="skill-tag">Vagrant</span>
+      <span class="skill-tag">Git Bash</span>
+      <span class="skill-tag">Linux CLI</span>
+      <span class="skill-tag">AWS CLI</span>
+      <span class="skill-tag">MobaXterm</span>
+      <span class="skill-tag">Ubuntu</span>
+      <span class="skill-tag">CentOS</span>
+      <span class="skill-tag">Windows</span>
+      <span class="skill-tag">Oracle VM</span>
+      <span class="skill-tag">AWS Console</span>
+    </div>
 
-    <h2>Interests</h2>
-    <p>Continual learning and skill development</p>
+    <div class="visitor-count" id="visitorCount">Loading view count...</div>
   </div>
 
-<!-- ✅ Visitor Counter Section -->
-<h2>Visitor Counter</h2>
-<p>This resume has been viewed <span id="visit-count">...</span> times.</p>
+  <script>
+    function toggleTheme() {
+      const isDark = document.body.style.backgroundColor === 'var(--bg-dark)';
+      if (isDark) {
+        document.body.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-light');
+        document.body.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-light');
+        document.querySelectorAll('.card').forEach(card => card.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--card-bg-light'));
+      } else {
+        document.body.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-dark');
+        document.body.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-dark');
+        document.querySelectorAll('.card').forEach(card => card.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--card-bg-dark'));
+      }
+    }
 
-<!-- ✅ JS Script for Fetching Visits -->
-<script>
-  fetch("https://visitor-counter-4.onrender.com/visits")
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById("visit-count").innerText = data.visits;
-    })
-    .catch(error => {
-      console.error("Visitor API error:", error);
-      document.getElementById("visit-count").innerText = "error";
-    });
-</script>
-
+    fetch("https://visitor-counter-4.onrender.com/visits")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("visitorCount").innerText = `📈 This resume has been viewed ${data.visits} time${data.visits !== 1 ? 's' : ''}.`;
+      })
+      .catch(error => {
+        console.error("Visitor API error:", error);
+        document.getElementById("visitorCount").innerText = "⚠️ Visitor counter error";
+      });
+  </script>
 </body>
 </html>
