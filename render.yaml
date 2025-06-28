@@ -1,7 +1,7 @@
 services:
   - type: static
     name: lavanya-resume
-    repo: https://github.com/Lavanyajc/visitor-counter
+    repo: https://github.com/Lavanyajc/cloud-resume
     branch: main
     buildCommand: ""
     staticPublishPath: .
