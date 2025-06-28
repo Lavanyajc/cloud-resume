@@ -20,13 +20,13 @@
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      font-family: 'Inter', sans-serif;
+    body.light-mode {
       background-color: var(--bg-light);
       color: var(--text-light);
-      line-height: 1.6;
-      padding: 30px;
-      transition: background 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
     }
     .container {
       max-width: 1100px;
@@ -36,6 +36,9 @@
       border-radius: 16px;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
       transition: background 0.3s;
+    }
+    body.dark-mode .container {
+      background-color: var(--card-bg-dark);
     }
     .header {
       display: flex;
@@ -52,6 +55,9 @@
       border: none;
       border-radius: 8px;
     }
+    h1, h2 {
+      color: inherit;
+    }
     h1 {
       font-size: 2.5em;
       margin-bottom: 5px;
@@ -61,6 +67,9 @@
       font-size: 1.6em;
       border-bottom: 2px solid #ddd;
       padding-bottom: 5px;
+    }
+    body.dark-mode h2 {
+      border-bottom-color: #444;
     }
     .section {
       margin-top: 20px;
@@ -75,7 +84,10 @@
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       margin-bottom: 20px;
-      transition: transform 0.2s;
+      transition: transform 0.2s, background 0.3s;
+    }
+    body.dark-mode .card {
+      background-color: var(--card-bg-dark);
     }
     .card:hover {
       transform: scale(1.02);
@@ -104,7 +116,7 @@
     }
   </style>
 </head>
-<body>
+<body class="light-mode">
   <div class="container">
     <div class="header">
       <div>
@@ -210,16 +222,9 @@
 
   <script>
     function toggleTheme() {
-      const isDark = document.body.style.backgroundColor === 'var(--bg-dark)';
-      if (isDark) {
-        document.body.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-light');
-        document.body.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-light');
-        document.querySelectorAll('.card').forEach(card => card.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--card-bg-light'));
-      } else {
-        document.body.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-dark');
-        document.body.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-dark');
-        document.querySelectorAll('.card').forEach(card => card.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--card-bg-dark'));
-      }
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      body.classList.toggle('light-mode');
     }
 
     fetch("https://visitor-counter-4.onrender.com/visits")
