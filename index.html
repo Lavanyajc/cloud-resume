@@ -1,3 +1,4 @@
+<!-- Save this as index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
   <title>Lavanya J C - Cloud Resume</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Root & Theme Colors */
     :root {
       --bg-light: #f7f9fc;
       --bg-dark: #1c1c1e;
@@ -15,19 +17,24 @@
       --card-bg-light: #fff;
       --card-bg-dark: #2b2b2b;
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
+
     body.light-mode {
       background-color: var(--bg-light);
       color: var(--text-light);
     }
+
     body.dark-mode {
       background-color: var(--bg-dark);
       color: var(--text-dark);
     }
+
     .container {
       max-width: 1100px;
       margin: auto;
@@ -37,65 +44,86 @@
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
       transition: background 0.3s;
     }
+
     body.dark-mode .container {
       background-color: var(--card-bg-dark);
     }
+
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 30px;
     }
+
     .toggle-theme {
       cursor: pointer;
-      font-size: 1.2rem;
+      font-size: 1rem;
       padding: 6px 12px;
       background: var(--accent);
       color: #fff;
       border: none;
       border-radius: 8px;
     }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: var(--card-bg-light);
+      padding: 10px;
+      text-align: center;
+      z-index: 999;
+    }
+
+    body.dark-mode nav {
+      background-color: var(--card-bg-dark);
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
     h1, h2 {
       color: inherit;
     }
-    body.dark-mode h1,
-    body.dark-mode h2 {
-      color: var(--text-dark);
-    }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 5px;
-    }
+
     h2 {
       margin-top: 30px;
       font-size: 1.6em;
       border-bottom: 2px solid #ddd;
       padding-bottom: 5px;
     }
+
     body.dark-mode h2 {
       border-bottom-color: #444;
     }
-    .section {
-      margin-top: 20px;
-    }
+
     .contact a {
       color: var(--accent);
       margin-right: 15px;
     }
+
     .card {
       background: var(--card-bg-light);
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       margin-bottom: 20px;
-      transition: transform 0.2s, background 0.3s;
+      transition: transform 0.2s, background 0.3s, opacity 1s;
+      opacity: 0;
     }
+
+    .card.reveal {
+      opacity: 1;
+    }
+
     body.dark-mode .card {
       background-color: var(--card-bg-dark);
     }
-    .card:hover {
-      transform: scale(1.02);
-    }
+
     .skill-tag {
       display: inline-block;
       background: var(--accent);
@@ -105,11 +133,63 @@
       margin: 4px 4px 0 0;
       font-size: 0.9em;
     }
+
     .visitor-count {
       margin-top: 30px;
       font-size: 1.2em;
       font-weight: 600;
     }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-size: 1.5em;
+      text-decoration: none;
+      display: none;
+      z-index: 1000;
+    }
+
+    .back-to-top.show {
+      display: inline-block;
+    }
+
+    .contact-form {
+      margin-top: 40px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .contact-form button {
+      background: var(--accent);
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .pdf-button {
+      background: #4CAF50;
+      color: white;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
     @media (max-width: 768px) {
       body {
         padding: 15px;
@@ -121,6 +201,15 @@
   </style>
 </head>
 <body class="light-mode">
+  <nav>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#internships">Internships</a>
+    <a href="#skills">Skills</a>
+    <a href="#research">Research</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <div class="container">
     <div class="header">
       <div>
@@ -136,116 +225,95 @@
       💻 <a href="https://github.com/Lavanyajc" target="_blank">GitHub</a>
     </div>
 
-    <h2>Education</h2>
-    <div class="card">
-      <strong>B.E. Computer Science</strong><br>
-      Visvesvaraya Technological University, Acharya Institute of Technology, Bengaluru – 2024<br>
-      CGPA: 7.1
-    </div>
-    <div class="card">
-      <strong>Pre-University</strong><br>
-      Vikram Independent PU College, Chintamani – 2020
-    </div>
+    <h2 id="education">Education</h2>
+    <div class="card reveal">...</div>
 
-    <h2>Projects</h2>
-    <div class="card">
-      <strong>Feedback Web Application – <a href="https://github.com/Lavanyajc/PROJECT-Feedback-System-Web-App" target="_blank">GitHub</a></strong>
-      <ul>
-        <li>Designed and developed a full-stack feedback system with user authentication and role-based access.</li>
-        <li>Dockerized and deployed on AWS EC2.</li>
-        <li><strong>Tech Stack:</strong> Python, Flask, SQLite, Docker, AWS EC2</li>
-      </ul>
-    </div>
-    <div class="card">
-      <strong>Makerble Assessment Project – <a href="https://github.com/Lavanyajc/makerble-assignment" target="_blank">GitHub</a></strong>
-      <ul>
-        <li>Developed REST API in Go with role-based access and patient management system.</li>
-        <li>Created Postman docs, test cases, and implemented visit logs.</li>
-        <li><strong>Tech Stack:</strong> Golang (Gin), PostgreSQL</li>
-      </ul>
-    </div>
-    <div class="card">
-      <strong>Dyslexia & Dyscalculia Detection</strong>
-      <ul>
-        <li>AI-based diagnosis system using ML algorithms like SVM, KNN, Random Forest.</li>
-        <li>Integrated with Django UI for real-time predictions.</li>
-        <li><strong>Tech Stack:</strong> Python, Django, Scikit-learn, SQLite</li>
-      </ul>
-    </div>
-    <div class="card">
-      <strong>Car Rental System</strong>
-      <ul>
-        <li>Built a user-friendly online car booking system with backend database integration.</li>
-        <li><strong>Tech Stack:</strong> PHP, MySQL</li>
-      </ul>
-    </div>
+    <h2 id="projects">Projects</h2>
+    <div class="card reveal">...</div>
 
-    <h2>Internship Experience</h2>
-    <div class="card">
-      <strong>Python Intern – Skill Vertex</strong>
-      <ul>
-        <li>Completed a feedback collection system with Flask and SQLite.</li>
-        <li>Practiced hands-on Python scripting through daily tasks.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <strong>DevOps Engineer Trainee – 2025 (Ongoing)</strong>
-      <ul>
-        <li>Working with AWS services (IAM, S3, EC2, Route 53), setting up cloud infra manually and via Vagrant.</li>
-        <li>Practicing Docker, Infrastructure as Code, and monitoring basics.</li>
-      </ul>
-    </div>
+    <h2 id="internships">Internships</h2>
+    <div class="card reveal">...</div>
 
-    <h2>Research Publication</h2>
-    <div class="card">
+    <h2 id="research">Research Publication</h2>
+    <div class="card reveal">
       📝 Detection of Dyslexia and Dyscalculia in Children (ICCP Conference)<br>
       <a href="https://doi.org/10.5121/cseij.2025.15103" target="_blank">[PDF Link – click here]</a>
     </div>
 
-    <h2>Skills</h2>
-    <div>
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">Bash</span>
-      <span class="skill-tag">AWS</span>
-      <span class="skill-tag">Docker</span>
-      <span class="skill-tag">GitHub</span>
-      <span class="skill-tag">Vagrant</span>
-      <span class="skill-tag">Git Bash</span>
-      <span class="skill-tag">Linux CLI</span>
-      <span class="skill-tag">AWS CLI</span>
-      <span class="skill-tag">MobaXterm</span>
-      <span class="skill-tag">Ubuntu</span>
-      <span class="skill-tag">CentOS</span>
-      <span class="skill-tag">Windows</span>
-      <span class="skill-tag">Oracle VM</span>
-      <span class="skill-tag">AWS Console</span>
-    </div>
+    <h2 id="skills">Skills</h2>
+    <div class="card reveal">...</div>
 
-    <div class="visitor-count" id="visitorCount">Loading view count...</div>
+    <!-- ✅ PDF Download Button -->
+    <button class="pdf-button" onclick="window.print()">📄 Download Resume (PDF)</button>
+
+    <!-- ✅ Visitor Count -->
+    <div class="visitor-count" id="visitorCount">Loading visitor count...</div>
+
+    <!-- ✅ Contact Form -->
+    <h2 id="contact">Contact Me</h2>
+    <div class="card contact-form reveal">
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
   </div>
 
+  <a href="#" class="back-to-top" id="backToTop">↑</a>
+
   <script>
+    // Theme Toggle
     function toggleTheme() {
       const body = document.body;
       const toggleBtn = document.getElementById('themeToggle');
       body.classList.toggle('dark-mode');
       body.classList.toggle('light-mode');
-      if (body.classList.contains('dark-mode')) {
-        toggleBtn.innerText = '☀️ Enter Light Mode';
-      } else {
-        toggleBtn.innerText = '🌙 Enter Dark Mode';
-      }
+      toggleBtn.innerText = body.classList.contains('dark-mode') ? '☀️ Enter Light Mode' : '🌙 Enter Dark Mode';
     }
 
+    // Visitor Counter
     fetch("https://visitor-counter-4.onrender.com/visits")
       .then(response => response.json())
       .then(data => {
         document.getElementById("visitorCount").innerText = `📈 This resume has been viewed ${data.visits} time${data.visits !== 1 ? 's' : ''}.`;
       })
       .catch(error => {
-        console.error("Visitor API error:", error);
         document.getElementById("visitorCount").innerText = "⚠️ Visitor counter error";
       });
+
+    // Back To Top
+    const backToTop = document.getElementById("backToTop");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    };
+
+    // Fade In Cards on Scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+
+  <!-- ✅ Google Analytics (replace 'G-XXXXXXX' with your ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
   </script>
 </body>
 </html>
