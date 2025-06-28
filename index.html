@@ -58,6 +58,10 @@
     h1, h2 {
       color: inherit;
     }
+    body.dark-mode h1,
+    body.dark-mode h2 {
+      color: var(--text-dark);
+    }
     h1 {
       font-size: 2.5em;
       margin-bottom: 5px;
@@ -123,7 +127,7 @@
         <h1>Lavanya J C</h1>
         <p>Backend & DevOps Developer | Bengaluru, India</p>
       </div>
-      <button class="toggle-theme" onclick="toggleTheme()">Toggle Dark Mode</button>
+      <button id="themeToggle" class="toggle-theme" onclick="toggleTheme()">🌙 Enter Dark Mode</button>
     </div>
 
     <div class="contact">
@@ -223,8 +227,14 @@
   <script>
     function toggleTheme() {
       const body = document.body;
+      const toggleBtn = document.getElementById('themeToggle');
       body.classList.toggle('dark-mode');
       body.classList.toggle('light-mode');
+      if (body.classList.contains('dark-mode')) {
+        toggleBtn.innerText = '☀️ Enter Light Mode';
+      } else {
+        toggleBtn.innerText = '🌙 Enter Dark Mode';
+      }
     }
 
     fetch("https://visitor-counter-4.onrender.com/visits")
