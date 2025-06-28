@@ -3,6 +3,6 @@ services:
     name: cloud-resume
     repo: https://github.com/Lavanyajc/cloud-resume
     branch: main
-    buildCommand: ""
+    buildCommand: "echo 'No build step needed for static HTML'"
     staticPublishPath: .
     autoDeploy: true
