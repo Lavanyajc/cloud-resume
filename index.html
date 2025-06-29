@@ -292,7 +292,7 @@
       toggleBtn.innerText = body.classList.contains('dark-mode') ? '☀️ Enter Light Mode' : '🌙 Enter Dark Mode';
     }
 
-    fetch("https://visitor-counter-4.onrender.com/visits")
+    fetch("https://visitor-counter-9lbd.onrender.com/visits")
       .then(response => response.json())
       .then(data => {
         document.getElementById("visitorCount").innerText = `📈 This resume has been viewed ${data.visits} time${data.visits !== 1 ? 's' : ''}.`;
