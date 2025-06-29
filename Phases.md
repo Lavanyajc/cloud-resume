@@ -36,7 +36,7 @@ phase-1-html-resume/
 
 ## 🔗 Live Link
 
-- [GitHub Pages URL]( http://www.luffyjc.xyz/)
+- [GitHub Pages URL](https://www.luffyjc.xyz/)
 ```
 
 ---
