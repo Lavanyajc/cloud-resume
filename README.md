@@ -32,7 +32,8 @@ This is my implementation of the **Cloud Resume Challenge**, a real-world DevOps
 
 🔢 **Visitor Counter API/visits**: [https://visitor-counter-9lbd.onrender.com/visits](https://visitor-counter-9lbd.onrender.com/visits)
 
-🔢 **Visitor Counter API/visits**: https://visitor-counter-9lbd.onrender.com/
+🔢 **Visitor Counter API/visits**: [https://visitor-counter-9lbd.onrender.com](https://visitor-counter-9lbd.onrender.com/)
+
 ---
 
 ## ✅ Project Phases
