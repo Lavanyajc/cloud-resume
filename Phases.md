@@ -106,7 +106,6 @@ luffyjc.xyz
 
 `phase-3-visitor-counter` 
 
----
 
 ### ✅ Folder Structure
 
