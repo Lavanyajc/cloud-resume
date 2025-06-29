@@ -298,3 +298,106 @@ GitHub Actions automatically builds and deploys the app using a Render Deploy Ho
 * `.github/workflows/go-ci.yml`: CI/CD pipeline configuration
 
 ```
+
+
+---
+
+## ✅ Phase 4: Frontend Integration with Visitor Counter API
+
+### 📌 Objective:
+
+To integrate the Go backend API (visitor counter) with the frontend HTML resume so that each time the resume is visited, the visit count is updated and displayed live.
+
+---
+
+### 📁 File Structure (After Integration)
+
+```bash
+cloud-resume/
+├── index.html         # Main resume with integrated JS fetch for visitor count
+├── CNAME              # Contains 'www.luffyjc.xyz' for custom domain mapping
+├── .github/
+│   └── workflows/
+│       └── go-ci.yml  # For Phase 5 - CI/CD setup
+```
+
+---
+
+### 🔗 API Used:
+
+**Render-hosted Visitor API:**
+👉 `https://visitor-counter-9lbd.onrender.com/visits`
+
+---
+
+### 🛠️ What I Did:
+
+* From Phase 3, I already had a deployed Go API that returns the number of visits.
+* In this phase, I opened `index.html` from my static resume and injected a script to call the above API.
+* I displayed the returned visit count inside a `div` with id `visitorCount`.
+
+---
+
+### 📜 Code Snippet Added (in `index.html`):
+
+```html
+<div class="visitor-count" id="visitorCount">Loading visitor count...</div>
+
+<script>
+  fetch("https://visitor-counter-9lbd.onrender.com/visits")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("visitorCount").innerText = 
+        `📈 This resume has been viewed ${data.visits} time${data.visits !== 1 ? 's' : ''}.`;
+    })
+    .catch(error => {
+      document.getElementById("visitorCount").innerText = "⚠️ Visitor counter error";
+    });
+</script>
+```
+
+---
+
+### 🧪 How I Verified:
+
+* Deployed `index.html` via GitHub Pages.
+* Visited the site using `https://luffyjc.xyz` (custom domain).
+* Verified visitor count updates in real-time with every refresh.
+
+---
+
+### 🐞 Errors Faced & Fixes:
+
+| Issue                                          | Fix                                                              |
+| ---------------------------------------------- | ---------------------------------------------------------------- |
+| **CORS Error** (`Access-Control-Allow-Origin`) | Added CORS headers in Go backend (`main.go`)                     |
+| Wrong API URL used initially                   | Corrected to: `https://visitor-counter-9lbd.onrender.com/visits` |
+| GitHub pages took time to reflect changes      | Committed + waited a minute, verified cache cleared              |
+
+---
+
+### ✅ CORS Fix in Backend:
+
+```go
+r.Use(func(c *gin.Context) {
+  c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+  c.Writer.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+  c.Writer.Header().Set("Access-Control-Allow-Headers", "Origin, Content-Type, Accept")
+  if c.Request.Method == "OPTIONS" {
+    c.AbortWithStatus(204)
+    return
+  }
+  c.Next()
+})
+```
+
+---
+
+### 🎯 Outcome:
+
+* Resume now displays **real-time visitor count** on load.
+* Fully integrated frontend + backend using free tools.
+* Successfully bridged Phase 3 (backend) and frontend resume via JS fetch.
+
+---
+
