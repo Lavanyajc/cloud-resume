@@ -155,4 +155,7 @@ cloud-resume/              # Frontend HTML resume //seprate repo (current one)
 🔗 GitHub: [@Lavanyajc](https://github.com/Lavanyajc)
 
 ---
+[![Uptime Robot Status](https://img.shields.io/uptimerobot/status/m790234300-eaea3c6f2ae39f7fa5b5e9c7?label=Visitor%20Counter%20API)](https://stats.uptimerobot.com/pxgYRR0FOn)
+
+🔗 **Live Status Page**: [https://stats.uptimerobot.com/pxgYRR0FOn](https://stats.uptimerobot.com/pxgYRR0FOn)
 
