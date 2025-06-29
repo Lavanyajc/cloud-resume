@@ -29,7 +29,9 @@ This is my implementation of the **Cloud Resume Challenge**, a real-world DevOps
 ## 🚀 Live Website
 
 📄 **Resume**: [https://lavanyajc.github.io/cloud-resume/](https://lavanyajc.github.io/cloud-resume/)
+
 🔢 **Visitor Counter API/visits**: [https://visitor-counter-9lbd.onrender.com/visits](https://visitor-counter-9lbd.onrender.com/visits)
+
 🔢 **Visitor Counter API/visits**: https://visitor-counter-9lbd.onrender.com/
 ---
 
