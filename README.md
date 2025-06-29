@@ -25,6 +25,10 @@ This is my implementation of the **Cloud Resume Challenge**, a real-world DevOps
 > 💡 *Due to AWS cost constraints, I used **fully free tools** to complete all phases without compromising on quality.*
 
 ---
+[![Uptime Robot Status](https://img.shields.io/uptimerobot/status/m790234300-eaea3c6f2ae39f7fa5b5e9c7?label=Visitor%20Counter%20API)](https://stats.uptimerobot.com/pxgYRR0FOn)
+
+🔗 **Live Status Page**: [https://stats.uptimerobot.com/pxgYRR0FOn](https://stats.uptimerobot.com/pxgYRR0FOn)
+
 
 ## 🚀 Live Website
 
