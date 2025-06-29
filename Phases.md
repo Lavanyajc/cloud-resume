@@ -545,3 +545,38 @@ jobs:
 | **Git** & **Git Bash** | Version control & CLI operations            |
 
 ---
+
+
+---
+
+## ✅ Phase 6 – Monitoring (Free, Lightweight & Effective)
+
+To complete the Cloud Resume Challenge with a solid DevOps touch, I implemented **real-time monitoring** to ensure my backend API remains available 24/7.
+
+### 🚀 What I Implemented
+
+I used **UptimeRobot** (a free and reliable uptime monitoring tool) to monitor my deployed **Go backend visitor counter API**.
+
+* ✅ **Monitored URL**: [`https://visitor-counter-9lbd.onrender.com/`](https://visitor-counter-9lbd.onrender.com/)
+* ✅ **Monitor Type**: HTTP(s)
+* ✅ **Check Frequency**: Every 5 minutes
+* ✅ **Alerting**: Email notifications on downtime
+
+This setup ensures I get **instant alerts** if the API becomes unreachable — keeping me proactive about service reliability.
+
+### 🎯 Why UptimeRobot?
+
+* 💸 **100% Free** — perfectly aligned with my zero-cost CRC goal.
+* ⚡ **No infrastructure overhead** — no need to host or manage Grafana/Prometheus.
+* 🧠 **Smart DevOps decision** — simple, scalable, and production-ready for lightweight projects.
+
+### ✅ Outcome
+
+* My API’s availability is continuously tracked.
+* I receive alerts if the service goes down, enabling rapid recovery.
+* This completes the **DevOps loop** of build → deploy → monitor.
+
+> 📈 With monitoring in place, my CRC project is not just complete — it's production-aware and reliable.
+
+---
+
