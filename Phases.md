@@ -36,7 +36,7 @@ phase-1-html-resume/
 
 ## 🔗 Live Link
 
-- [GitHub Pages URL](https://Lavanyajc.github.io/cloud-resume)
+- [GitHub Pages URL]( http://www.luffyjc.xyz/)
 ```
 
 ---
