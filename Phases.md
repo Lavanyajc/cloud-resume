@@ -104,10 +104,10 @@ luffyjc.xyz
 
 ---
 
-`phase-3-visitor-counter` 
+## ✅`phase-3-visitor-counter` 
 
 
-### ✅ Folder Structure
+📁 Folder Structure
 
 ```
 phase-3-visitor-counter/
