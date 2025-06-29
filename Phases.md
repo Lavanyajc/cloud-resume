@@ -400,3 +400,148 @@ r.Use(func(c *gin.Context) {
 
 ---
 
+
+---
+
+## 🚀 Phase 5: CI/CD – Continuous Integration & Deployment
+
+### ✅ Goal:
+
+Establish **fully automated deployment pipelines** for both frontend and backend:
+
+* Frontend (`index.html`) auto-deploys via **GitHub Pages**
+* Backend (`Go API`) auto-deploys to **Render** using **GitHub Actions + Deploy Hook**
+
+---
+
+## 🧱 Folder Structure (Post-CI/CD)
+
+```bash
+cloud-resume/                   ← HTML Resume Repository
+├── index.html                  ← Resume with visitor counter integration
+├── CNAME                       ← Custom domain: www.luffyjc.xyz
+└── .github/
+    └── workflows/
+        └── pages.yml           ← (GitHub Pages manages auto-deploy — no extra file needed)
+
+visitor-counter/                ← Backend Repository (Go API)
+├── main.go                     ← Visitor counter logic
+├── go.mod
+├── go.sum
+└── .github/
+    └── workflows/
+        └── go-ci.yml          ← GitHub Actions workflow for Render auto-deploy
+```
+
+---
+
+## 🔧 What I Implemented
+
+### ✅ **Frontend CI/CD with GitHub Pages**
+
+* Hosted the resume as a static website.
+* Configured GitHub Pages:
+
+  * **Branch:** `main`
+  * **Folder:** `/ (root)`
+* Set up the custom domain: `www.luffyjc.xyz` (added in **CNAME** file).
+* **Result:** Any update to `index.html` auto-publishes to the live site.
+
+🔗 **Live Resume:** [www.luffyjc.xyz](https://www.luffyjc.xyz)
+
+---
+
+### ✅ **Backend CI/CD with GitHub Actions + Render Deploy Hook**
+
+1. Deployed Go backend API to **Render**.
+
+2. Enabled ✅ "Auto Deploy" and copied the **Render Deploy Hook URL**.
+
+3. Added a **GitHub Secret**:
+
+   * Name: `RENDER_DEPLOY_HOOK`
+   * Value: *(Your Render deploy hook URL)*
+
+4. Created a GitHub Actions workflow: `.github/workflows/go-ci.yml`
+
+---
+
+### 🧾 Final GitHub Actions Workflow
+
+```yaml
+name: Deploy Go API to Render
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📦 Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: 🔧 Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: 🛠️ Build Go Project
+        run: go build -v ./...
+
+      - name: 🚀 Trigger Deploy on Render
+        env:
+          DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          curl -X GET "$DEPLOY_HOOK"
+```
+
+> ✅ This workflow automatically triggers deployment on Render whenever a push is made to `main`.
+
+---
+
+## 🔍 Verifying CI/CD Worked
+
+| 🔁 Task                          | 🔍 Action Taken                          | ✅ Result                  |
+| -------------------------------- | ---------------------------------------- | ------------------------- |
+| **Frontend** auto-deploy         | Edited `index.html` → pushed to `main`   | GitHub Pages live updated |
+| **Backend** auto-deploy          | Edited `main.go` → pushed to `main`      | Render auto-redeployed    |
+| Confirmed via GitHub **Actions** | Green checkmarks + Deploy Hook triggered | Verified Build & Deploy   |
+
+---
+
+## 🧠 Issues Faced & How I Solved Them
+
+| ⚠️ Problem                                   | 🛠️ Fix                                                                |
+| -------------------------------------------- | ---------------------------------------------------------------------- |
+| Deploy hook wasn’t working                   | Used correct Render URL, added secret properly                         |
+| GitHub Actions failed on build step          | Ensured `go.mod` and `main.go` were working with `go build`            |
+| Auto-deploy didn’t trigger on update         | Verified branch was `main`, and deploy secret was valid                |
+| Confused between `pages.yml` and `go-ci.yml` | Used GitHub Pages' native deployment (no workflow needed for frontend) |
+
+---
+
+## 🎯 Outcome
+
+✨ **CI/CD success for both front and back ends**:
+
+* ✅ Frontend: GitHub Pages handles resume deployment automatically
+* ✅ Backend: Render redeploys instantly via GitHub Actions + Deploy Hook
+* 🔄 I just push code — and **everything goes live automatically**
+
+---
+
+## 🛠️ Tools & Services Used
+
+| Tool                   | Purpose                                     |
+| ---------------------- | ------------------------------------------- |
+| **GitHub Pages**       | Frontend hosting + automatic static deploy  |
+| **Render**             | Backend hosting for Go API                  |
+| **GitHub Actions**     | CI/CD pipelines for backend auto-deployment |
+| **Go** (Golang)        | Backend API for visitor counter             |
+| **Git** & **Git Bash** | Version control & CLI operations            |
+
+---
