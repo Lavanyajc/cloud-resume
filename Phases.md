@@ -298,9 +298,8 @@ GitHub Actions automatically builds and deploys the app using a Render Deploy Ho
 * `.github/workflows/go-ci.yml`: CI/CD pipeline configuration
 
 ```
+```
 
-
----
 
 ## ✅ Phase 4: Frontend Integration with Visitor Counter API
 
