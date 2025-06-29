@@ -578,5 +578,15 @@ This setup ensures I get **instant alerts** if the API becomes unreachable — k
 
 > 📈 With monitoring in place, my CRC project is not just complete — it's production-aware and reliable.
 
+### 📡 Monitoring Target:
+`https://visitor-counter-9lbd.onrender.com/`
+
+### 🔍 Live Public Status Page:
+➡️ [https://stats.uptimerobot.com/pxgYRR0FOn](https://stats.uptimerobot.com/pxgYRR0FOn)
+
+### ✅ Status Badge:
+![Uptime Robot](https://img.shields.io/badge/Uptime-Monitored-brightgreen?style=flat-square&logo=uptimerobot)
+
+
 ---
 
